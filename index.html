@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Robin — A Celebration of 66 Years</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Flowbite CSS & JS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    
+    <!-- Google Fonts - Cormorant Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: '#6b2c2c',
+                        gold: '#d4af37',
+                        cream: '#f8f5f1'
+                    },
+                    fontFamily: {
+                        'serif': ['Cormorant Garamond', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream font-serif overflow-x-hidden">
+
+    <!-- Classical Music Player -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="musicToggle" class="bg-burgundy/90 backdrop-blur-sm hover:bg-burgundy text-gold px-4 py-2 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2">
+            <svg id="musicIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/>
+            </svg>
+            <span id="musicText">Play Music</span>
+        </button>
+    </div>
+    
+    <!-- Background music (Chopin - Minute Waltz, public domain) -->
+    <audio id="bgMusic" loop>
+        <source src="https://upload.wikimedia.org/wikipedia/commons/2/21/Frederic_Chopin_-_waltz_in_d-flat_major%2C_op-_64%2C_no-_1_%28minute_waltz%29.ogg" type="audio/ogg">
+    </audio>
+
+    <!-- Hero Section - 3D Flip Birthday Card -->
+    <section class="min-h-screen flex items-center justify-center px-4 py-20 parallax-section" data-speed="0.5">
+        <div class="card-container" id="cardContainer">
+            <div class="card" id="card">
+                <!-- Front of Card -->
+                <div class="card-front">
+                    <div class="h-full flex flex-col items-center justify-center p-8 bg-gradient-to-br from-gold via-yellow-600 to-gold rounded-2xl shadow-2xl">
+                        <h1 class="text-6xl md:text-8xl font-bold text-burgundy mb-8">For Robin</h1>
+                        <p class="text-2xl md:text-3xl text-burgundy/80 italic mb-12">A Celebration of 66 Years</p>
+                        <div class="pulse-animation">
+                            <p class="text-lg md:text-xl text-burgundy font-semibold">Click to open</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Inside of Card -->
+                <div class="card-back">
+                    <div class="h-full overflow-y-auto p-8 md:p-12 bg-cream rounded-2xl shadow-2xl">
+                        <div class="max-w-2xl mx-auto">
+                            <h2 class="text-4xl md:text-5xl font-bold text-burgundy mb-8 text-center">Dear Robin,</h2>
+                            
+                            <div class="space-y-6 text-lg md:text-xl text-gray-800 leading-relaxed">
+                                <p>Happy 66th. After miscalculating time, as per usual, I had to pull an all-nighter on this present. I apologize for the tardiness.</p>
+                                
+                                <p>You have a rare sense for time and rhythm. You also know how easy it is to get lost in the work. In the details. In the moment. Over time, your balance and rhythm might rub off on me, if I should be so lucky.</p>
+                                
+                                <p>Thank you for welcoming Diko and me into your life with an open heart. It means more than I can say. As we say in Sweden, <span class="italic text-burgundy font-semibold">du sätter guldkant på tillvaron.</span> The cherry on top in American. Your presence makes life feel more precious, just by being there.</p>
+                                
+                                <p>Thank you for being part of our life.</p>
+                                
+                                <p>We love you very much and look forward to what is ahead. The four of us. Together.</p>
+                                
+                                <p class="text-center mt-8">Eternally yours, with all our love,</p>
+                                <p class="text-center text-burgundy font-bold text-2xl">Dikoros & Dorian</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video & Art Carousel Section -->
+    <section class="min-h-screen flex items-center justify-center py-20 px-4 bg-white parallax-section" data-speed="0.3">
+        <div class="max-w-6xl mx-auto w-full">
+            <h2 class="text-5xl md:text-6xl font-bold text-burgundy text-center mb-16 fade-in">A Life in Motion & Art</h2>
+            
+            <!-- Flowbite Carousel -->
+            <div id="carousel" class="relative w-full" data-carousel="static">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96 lg:h-[600px] shadow-2xl">
+                    <!-- Slide 1 - Prague Morning -->
+                    <div class="duration-700 ease-in-out" data-carousel-item="active">
+                        <video class="absolute block w-full h-full object-contain bg-black" controls>
+                            <source src="scene1_prague_video.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Prague Morning</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 - White Mountain -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <video class="absolute block w-full h-full object-contain bg-black" controls>
+                            <source src="scene2_whitemt_video.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">White Mountain</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 - Imperial Edict -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <video class="absolute block w-full h-full object-contain bg-black" controls>
+                            <source src="scene3_edict_video.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Imperial Edict</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4 - Birthday Toast -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <video class="absolute block w-full h-full object-contain bg-black" controls>
+                            <source src="New_Birthday_Video_Version.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Birthday Toast</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5 - Lakeside Serenade -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <video class="absolute block w-full h-full object-contain bg-black" controls>
+                            <source src="robin_lakeside_singing_dog.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Lakeside Serenade</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 6 - Freestyle Tribute -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <video class="absolute block w-full h-full object-contain bg-black" controls>
+                            <source src="Freestyle_rap_artist_202510060618_e1u9s.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Freestyle Tribute</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 7 - Jolly Good Fellow -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <video class="absolute block w-full h-full object-contain bg-black" controls>
+                            <source src="Video_Generation_Jolly_Good_Fellow.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">For He's a Jolly Good Fellow</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 8 - Thirty Years War Freestyle Rap -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <video class="absolute block w-full h-full object-contain bg-black" controls>
+                            <source src="Thirty_Years_War_Cinematic_Video.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Thirty Years War Freestyle Rap</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 9 - Renaissance Portrait I -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="Gemini_Generated_Image_gccge2gccge2gccg.png" class="absolute block w-full h-full object-contain" alt="Renaissance Portrait">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Renaissance Portrait I</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 10 - Renaissance Portrait II -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="Gemini_Generated_Image_qho1i4qho1i4qho1.png" class="absolute block w-full h-full object-contain" alt="Renaissance Portrait">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Renaissance Portrait II</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 11 - Renaissance Portrait III -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="Gemini_Generated_Image_vtg9ptvtg9ptvtg9.png" class="absolute block w-full h-full object-contain" alt="Renaissance Portrait">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white text-xl md:text-3xl font-semibold text-center">Renaissance Portrait III</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="min-h-screen py-20 px-4 bg-cream parallax-section" data-speed="0.4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl md:text-6xl font-bold text-burgundy text-center mb-16 fade-in">Memories in Pictures</h2>
+            
+            <!-- Masonry Collage Layout -->
+            <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 0.jpeg')">
+                    <img src="R - 0.jpeg" alt="Memory 1" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 1.jpeg')">
+                    <img src="R - 1.jpeg" alt="Memory 2" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 2.jpeg')">
+                    <img src="R - 2.jpeg" alt="Memory 3" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 6.JPG')">
+                    <img src="R - 6.JPG" alt="Memory 4" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 9.JPG')">
+                    <img src="R - 9.JPG" alt="Memory 5" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 10.JPG')">
+                    <img src="R - 10.JPG" alt="Memory 6" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 13.jpeg')">
+                    <img src="R - 13.jpeg" alt="Memory 7" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 14.jpg')">
+                    <img src="R - 14.jpg" alt="Memory 8" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 15.jpg')">
+                    <img src="R - 15.jpg" alt="Memory 9" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 16.jpg')">
+                    <img src="R - 16.jpg" alt="Memory 10" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 17.jpg')">
+                    <img src="R - 17.jpg" alt="Memory 11" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 18.jpg')">
+                    <img src="R - 18.jpg" alt="Memory 12" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 20.JPG')">
+                    <img src="R - 20.JPG" alt="Memory 13" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 21.JPG')">
+                    <img src="R - 21.JPG" alt="Memory 14" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 22.JPG')">
+                    <img src="R - 22.JPG" alt="Memory 15" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 23.JPG')">
+                    <img src="R - 23.JPG" alt="Memory 16" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 24.JPG')">
+                    <img src="R - 24.JPG" alt="Memory 17" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 25.jpeg')">
+                    <img src="R - 25.jpeg" alt="Memory 18" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 26.jpeg')">
+                    <img src="R - 26.jpeg" alt="Memory 19" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 27.jpeg')">
+                    <img src="R - 27.jpeg" alt="Memory 20" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 mb-4 break-inside-avoid" onclick="openLightbox('R - 28.jpeg')">
+                    <img src="R - 28.jpeg" alt="Memory 21" class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section class="min-h-screen flex items-center justify-center py-20 px-4 bg-white parallax-section" data-speed="0.2">
+        <div class="text-center">
+            <div class="text-8xl md:text-9xl text-burgundy mb-8">❦</div>
+            <p class="text-3xl md:text-5xl font-bold text-burgundy mb-4">Happy Birthday, Robin</p>
+            <p class="text-xl md:text-2xl text-burgundy/80 italic">October 5, 2025</p>
+            <div class="text-8xl md:text-9xl text-burgundy mt-8">❦</div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-4xl hover:text-gold transition-colors">&times;</button>
+        <img id="lightboxImg" src="" alt="Full size image" class="max-w-full max-h-full object-contain">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
